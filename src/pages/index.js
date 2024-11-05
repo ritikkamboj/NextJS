@@ -3,6 +3,7 @@ import Image from "next/image";
 import localFont from "next/font/local";
 import styles from "@/styles/Home.module.css";
 import Script from "next/script";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,9 +32,10 @@ export default function Home() {
       >
         <nav className={styles.mainnav}>
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Contact</li>
+            <Link href="./">  <li>Home</li></Link>
+            <Link href="./about">  <li>About</li></Link>
+            <Link href="./contact">  <li>Contact</li></Link>
+            <Link href="./blog">  <li>Blog</li></Link>
           </ul>
         </nav>
         <main className={styles.main}>

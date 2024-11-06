@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 
 const useUser = () => {
     return {
-        user: null,
+        user: { name: 'ritik' },
         loading: false,
     };
 };

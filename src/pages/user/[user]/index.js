@@ -1,8 +1,22 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 
+const useUser = () => {
+    return {
+        user: null,
+        loading: false,
+    };
+};
 function Index() {
     const router = useRouter();
+    const user = useUser();
+
+    useEffect(() => {
+        if (user.user === null) {
+            router.replace("/");
+        }
+    }, [user.user]);
+
     return (
         <div>
             <p>
@@ -19,7 +33,7 @@ function Index() {
             >
                 Click for settings
             </button>
-            <button onClick={() => router.push(`/`)}>Home Page</button>
+            <button onClick={() => router.replace(`/`)}>Home Page</button>
         </div>
     );
 }

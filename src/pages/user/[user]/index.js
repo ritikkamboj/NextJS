@@ -34,6 +34,7 @@ function Index() {
                 Click for settings
             </button>
             <button onClick={() => router.replace(`/`)}>Home Page</button>
+            <button onClick={() => router.reload()}>Reload</button>
         </div>
     );
 }

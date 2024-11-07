@@ -1,22 +1,26 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import useSWR from "swr";
 
-// we want all users name on this page
+
+
+
+const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 function Index() {
-    const [data, setData] = useState([]);
 
-    useEffect(() => {
-        async function fetchData() {
-            const res = await fetch("https://jsonplaceholder.typicode.com/users");
-            const data = await res.json();
-            // console.log(data[0].name);
 
-            setData(data);
-        }
+    const { data, error } = useSWR("https://jsonplaceholder.typicode.com/users", fetcher);
+    console.log(data);
 
-        fetchData();
-    }, []);
+    if (error) {
+        return <h1>Error in the loading of details </h1>
+    }
+
+    if (!data) {
+        return <h1>Data Loading...</h1>
+    }
+
 
     return (
         <div>

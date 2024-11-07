@@ -14,7 +14,7 @@ function ParticularUser() {
         `https://jsonplaceholder.typicode.com/users/${id}`
       );
       const data = await res.json();
-      console.log(data);
+      // console.log(data);
       // console.log(data[0].name);
 
       // setData(data);
@@ -30,6 +30,7 @@ function ParticularUser() {
         After setting the proper router and link, now it will print the details
         of : {parCustomer?.name}
       </p>
+      <p>Email of the person clicked is : {parCustomer?.email}</p>
     </div>
   );
 }

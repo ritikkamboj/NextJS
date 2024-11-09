@@ -1,14 +1,19 @@
 import React from "react";
 
 function id(props) {
-  console.log("data", props.data.firstName);
+  console.log("data", props);
 
   return <div>{props.data.firstName}</div>;
 }
 
 export const getStaticPaths = async () => {
+  const data = await (await fetch(`https://dummyjson.com/users/`)).json();
+  console.log(data);
+  const allUserIds = data.users.map((user) => user.id);
+  console.log(allUserIds);
   return {
-    paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
+    // paths: [{ params: { id: "1" } }, { params: { id: "2" } }],
+    paths: allUserIds.map((userId) => ({ params: { id: `${userId}` } })),
     fallback: false,
   };
 };

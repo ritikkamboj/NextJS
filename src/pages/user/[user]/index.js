@@ -21,7 +21,7 @@ function Index() {
         <div>
             <p>
                 his is the root page, for [user] folder, if after reaching till [user]
-                folder , we not mention any file{" "}
+                folder , we not mention any file{" "} working
             </p>
             <button
                 onClick={() =>

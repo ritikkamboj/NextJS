@@ -2,6 +2,8 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import useSWR from "swr";
 
+import Styles from './../../styles/Customer.module.css';
+
 const fetcher = (...args) => fetch(...args).then((res) => res.json()); // here we can also use single argument , intead of using rest parametres
 
 function Index() {
@@ -26,7 +28,7 @@ function Index() {
             <ul>
                 {data.map((user) => (
                     <Link href={`/customers/${user.id}`} key={user.id}>
-                        <div>{user.name}</div>
+                        <div className={Styles.text} >{user.name}</div>
                     </Link>
                 ))}
             </ul>
